@@ -2,9 +2,8 @@ import {
   ACTION_LOAD_ALBUMS,
   ACTION_LOAD_ALBUMS_SUCCESS,
   ACTION_LOAD_ALBUMS_ERROR,
-  ACTION_LOAD_FORKS,
-  ACTION_LOAD_FORKS_SUCCESS,
-  ACTION_LOAD_FORKS_ERROR,
+  ACTION_REMOVE_FROM_FAVORITES,
+  ACTION_ADD_TO_FAVORITES,
   ACTION_HIDE_ERROR,
 } from './actions-constants';
 
@@ -32,26 +31,20 @@ export function loadAlbumsOfArtistError(error) {
   };
 }
 
-export function loadAllForks(url, id) {
+export function addToFavorites(id) {
   return {
-    type: ACTION_LOAD_FORKS,
-    payload: { url, id },
+    type: ACTION_ADD_TO_FAVORITES,
+    payload: { id },
   };
 }
 
-export function loadForksSuccess(payload) {
+export function removedFromFavorites(id) {
   return {
-    type: ACTION_LOAD_FORKS_SUCCESS,
-    payload,
+    type: ACTION_REMOVE_FROM_FAVORITES,
+    payload: { id },
   };
 }
 
-export function loadForksError(error) {
-  return {
-    type: ACTION_LOAD_FORKS_ERROR,
-    error,
-  };
-}
 
 export function hideError() {
   return {

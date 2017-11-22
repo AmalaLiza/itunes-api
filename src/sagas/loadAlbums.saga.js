@@ -28,6 +28,11 @@ export function* loadAlbumsOfArtist(action) {
         name: response.results[0].artistName,
         img_url: response.results[0].artistViewUrl,
       };
+      response.results.map((album) => {
+        album.favorite = false;
+        return album;
+      });
+
       yield put(loadAlbumsOfArtistSuccess(normalizeItems(response.results, 'trackId'), artist));
     }
   } catch (error) {

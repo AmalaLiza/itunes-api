@@ -6,9 +6,11 @@ import { getError } from '../../components/AlbumsList/albumslist.selector';
 import { hideError } from '../../actions/action-creator';
 import styles from './App.css';
 import '../../global.css';
+import AlbumDetails from '../../components/AlbumDetails/AlbumDetails';
+import SearchBox from '../../components/SearchBox/SearchBox';
+import Favorites from '../../components/Favorites/Favorites';
 
 class App extends Component {
-
   constructor(props, context) {
     super(props, context);
     this.hideError = this.hideError.bind(this);
@@ -17,20 +19,22 @@ class App extends Component {
   /**
    * Function to hide error component
    * It dispatches action to store to hide error.
-   **/
+   * */
 
   hideError() {
     this.props.dispatch(hideError());
   }
 
   render() {
-
     return (
-      <div>
-        <div className={styles.background}></div>
+      <div className={styles.background}>
+        <SearchBox />
         <AlbumsList />
-        {this.props.error ? <ErrorPopup error={this.props.error}
-                                        hideError={this.hideError} /> : null}
+        <AlbumDetails />
+        <Favorites />
+        {this.props.error ? <ErrorPopup
+          error={this.props.error}
+          hideError={this.hideError} /> : null}
       </div>
     );
   }

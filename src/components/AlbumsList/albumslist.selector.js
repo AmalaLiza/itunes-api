@@ -7,3 +7,7 @@ export const selectAlbums = state => ({
 export const getError = state => ({
   error: state.iTunesApi.get('error'),
 });
+
+export const selectFavorites = state => ({
+  error: state.iTunesApi.get('favorites'),
+});
