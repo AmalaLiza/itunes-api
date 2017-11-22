@@ -6,6 +6,7 @@
 .list {
   overflow: auto;
   display: flex;
+  padding-bottom: 40px;
 }
 
 .text {

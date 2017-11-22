@@ -4,10 +4,11 @@ import styles from './Artists.css';
 
 class Artists extends Component {
   render() {
-    const { artists } = this.props;
+    const { artists, onClick } = this.props;
     return (
       <ul className={styles.list}>
-        {artists.map((artist) => <li className={styles.listItem}>
+        {artists.map((artist) => <li className={styles.listItem}
+                                     onClick={() => onClick(artist)}>
           <div className={styles.artist}>
             <span className={styles.letter}>
             {artist.get('name')[0]}
