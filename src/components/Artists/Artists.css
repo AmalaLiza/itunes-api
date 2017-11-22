@@ -1,0 +1,29 @@
+.list {
+  list-style: none;
+  width: 500px;
+  overflow: auto;
+  height: 450px;
+  margin-top: 50px;
+}
+
+.listItem {
+  font-size: 14px;
+  padding: 0 10px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  height: 50px;
+}
+
+.listItemSinger {
+  padding-left: 20px;
+}
+
+.artist {
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  background-color: #0000ff47
+}

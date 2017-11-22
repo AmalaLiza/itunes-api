@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import TextField from '../TextField/TextField';
+import styles from './SearchBox.css';
 
-class SearchBox extends Component {
-  render() {
-    return (
-      <div>
-        <input type={'search'} />
-      </div>
-    );
-  }
-}
-
-SearchBox.propTypes = {};
-SearchBox.defaultProps = {};
+const SearchBox = ({ onEnter }) => (
+  <div>
+    <TextField className={styles.input}
+               onEnter={onEnter}
+               placeHolder='Search' />
+  </div>
+);
 
 export default SearchBox;

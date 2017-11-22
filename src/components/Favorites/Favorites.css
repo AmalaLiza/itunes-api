@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  padding-top: 40px;
+
+}
+
+.heading {
+  color: #24292E;
+}
+
+.list {
+  width: 500px;
+  overflow: auto;
+  height: 450px;
+}
+
+.listItem {
+  font-size: 14px;
+  padding: 0 10px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.listItem:last-child {
+  margin-bottom: 0;
+}
+
+.listItemImage {
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  background-size: cover;
+}
+
+.listItemTitle {
+  width: 400px;
+  padding-left: 20px;
+}
+
+.listItemSinger {
+  flex-grow: 1;
+  width: 100%;
+  padding-left: 20px;
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.artistWrapper {
+  margin-left: 88px;
+}

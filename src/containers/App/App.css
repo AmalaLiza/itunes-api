@@ -1,17 +1,36 @@
-.background {
-  position: fixed;
-  top: -10%;
-  left: -10%;
-  right: -10%;
-  bottom: -10%;
-  background: url('../../images/background.jpg') no-repeat;
-  background-size: cover;
+.appBackground {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
 }
 
-.background:after{
+.appBackground:before {
   content: '';
+  background: url('../../images/background.jpg') no-repeat center;
+  background-size: cover;
+  -webkit-filter: blur(13px);
+  -moz-filter: blur(13px);
+  -o-filter: blur(13px);
+  -ms-filter: blur(13px);
+  filter: blur(13px);
   position: absolute;
-  width: 100%;
+  left: -13px;
+  right: -13px;
+  top: -13px;
+  bottom: -13px;
+}
+
+.appWrapper {
   height: 100%;
-  background: rgba(36, 41, 46, 0.85);
+}
+
+.appContainer {
+  background: rgba(227, 231, 234, 0.85);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  padding: 40px;
 }

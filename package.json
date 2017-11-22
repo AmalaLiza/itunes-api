@@ -1,7 +1,7 @@
 {
   "name": "itunes-api",
   "version": "1.0.0",
-  "description": "An simple application to list favourite albums in itunes.",
+  "description": "An simple application to list favorite albums in itunes.",
   "main": "index.js",
   "scripts": {
     "start": "node server.dev.js",

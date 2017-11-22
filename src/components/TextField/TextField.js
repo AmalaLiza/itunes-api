@@ -1,8 +1,7 @@
-import * as React from 'react';
 import PropTypes from 'prop-types';
+import * as React from 'react';
 
 export default class TextField extends React.Component {
-
   constructor(props, context) {
     super(props, context);
 
@@ -12,13 +11,14 @@ export default class TextField extends React.Component {
 
   /**
    * Function to handle on change event of input box.
-   **/
+   * */
   handleChange(event) {
     if (this.props.onChange) {
       let value = event.target.value;
 
-      if (this.props.type === 'number')
+      if (this.props.type === 'number') {
         value = value ? +value : null;
+      }
 
       this.props.onChange(value);
     }
@@ -28,7 +28,7 @@ export default class TextField extends React.Component {
    * Function to handle on key down event of input box.
    * Handles on enter functionality.
    * @param event
-   **/
+   * */
   handleKeyDown(event) {
     if (event.keyCode === 13 && this.props.onEnter) {
       this.props.onEnter(event.target.value, event);
@@ -44,16 +44,18 @@ export default class TextField extends React.Component {
       className,
       defaultValue,
       value,
+      placeHolder,
     } = this.props;
 
     return (<input type={type}
+                   placeholder={placeHolder}
                    id={id}
                    className={className}
                    defaultValue={defaultValue}
                    value={value}
                    onKeyDown={this.handleKeyDown}
                    onChange={this.handleChange}
-                   autoFocus={true}
+                   autoFocus
       />
     );
   }

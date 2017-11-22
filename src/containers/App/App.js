@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ErrorPopup from '../../components/ErrorPopup/ErrorPopup';
-import AlbumsList from '../../components/AlbumsList/AlbumsList';
-import { getError } from '../../components/AlbumsList/albumslist.selector';
 import { hideError } from '../../actions/action-creator';
-import styles from './App.css';
-import '../../global.css';
+import { loadAlbumsOfArtist } from '../../actions/action-creator';
 import AlbumDetails from '../../components/AlbumDetails/AlbumDetails';
-import SearchBox from '../../components/SearchBox/SearchBox';
+import AlbumsList from '../../components/AlbumsList/AlbumsList';
+import { selector } from '../../components/AlbumsList/albumslist.selector';
+import ErrorPopup from '../../components/ErrorPopup/ErrorPopup';
 import Favorites from '../../components/Favorites/Favorites';
+import SearchBox from '../../components/SearchBox/SearchBox';
+import '../../global.css';
+import styles from './App.css';
 
 class App extends Component {
   constructor(props, context) {
@@ -26,20 +27,27 @@ class App extends Component {
   }
 
   render() {
+
+    const { activeAlbum, favorites, artists } = this.props;
+
     return (
-      <div className={styles.background}>
-        <SearchBox />
-        <AlbumsList />
-        <AlbumDetails />
-        <Favorites />
-        {this.props.error ? <ErrorPopup
-          error={this.props.error}
-          hideError={this.hideError} /> : null}
+      <div className={styles.appWrapper}>
+        <div className={styles.appBackground}>
+        </div>
+        <div className={styles.appContainer}>
+          <SearchBox onEnter={value => this.props.dispatch(loadAlbumsOfArtist(value))} />
+          <AlbumsList />
+          {favorites && favorites.size > 0 && <Favorites favorites={favorites}
+                                                         artists={artists} />}
+          {this.props.error ? <ErrorPopup
+            error={this.props.error}
+            hideError={this.hideError} /> : null}
+
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => getError(state);
-
+const mapStateToProps = state => selector(state);
 export default connect(mapStateToProps)(App);

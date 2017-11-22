@@ -11,7 +11,7 @@ const store = configureStore();
 // Connects store to app and binds react components to root.
 render(
   <Provider store={store}>
-    <div>
+    <div className="wh_100_per">
       <App />
     </div>
   </Provider>,

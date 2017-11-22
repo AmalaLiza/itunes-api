@@ -1,10 +1,10 @@
 import {
-  ACTION_LOAD_ALBUMS,
-  ACTION_LOAD_ALBUMS_SUCCESS,
-  ACTION_LOAD_ALBUMS_ERROR,
-  ACTION_REMOVE_FROM_FAVORITES,
   ACTION_ADD_TO_FAVORITES,
   ACTION_HIDE_ERROR,
+  ACTION_LOAD_ALBUMS,
+  ACTION_LOAD_ALBUMS_ERROR,
+  ACTION_LOAD_ALBUMS_SUCCESS,
+  ACTION_REMOVE_FROM_FAVORITES,
 } from './actions-constants';
 
 export function loadAlbumsOfArtist(artistName) {
@@ -31,10 +31,10 @@ export function loadAlbumsOfArtistError(error) {
   };
 }
 
-export function addToFavorites(id) {
+export function addToFavorites(id, album) {
   return {
     type: ACTION_ADD_TO_FAVORITES,
-    payload: { id },
+    payload: { id, album },
   };
 }
 

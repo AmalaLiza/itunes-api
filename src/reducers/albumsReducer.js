@@ -1,9 +1,9 @@
 import { fromJS } from 'immutable';
 import {
-  ACTION_LOAD_ALBUMS_SUCCESS,
   ACTION_ADD_TO_FAVORITES,
-  ACTION_REMOVE_FROM_FAVORITES,
   ACTION_HIDE_ERROR,
+  ACTION_LOAD_ALBUMS_SUCCESS,
+  ACTION_REMOVE_FROM_FAVORITES,
 } from '../actions/actions-constants';
 
 const initialState = fromJS({
@@ -11,6 +11,8 @@ const initialState = fromJS({
   albums: {},
   error: false,
   favorites: {},
+  activeAlbum: {},
+  artists: {},
 });
 
 export function albumsReducer(state = initialState, action) {
@@ -21,10 +23,13 @@ export function albumsReducer(state = initialState, action) {
 
     case ACTION_ADD_TO_FAVORITES:
       state = state.updateIn(['albums', action.payload.id.toString(), 'favorite'], () => true);
-      return state.setIn(['favorites', action.payload.id.toString()], fromJS(action.payload));
+      state = state.updateIn(['artists', action.payload.album.get('artistId')], () => fromJS({ name: action.payload.album.get('artistName') }));
+      const favorite = action.payload.album.set('favorite', true);
+      return state.setIn(['favorites', action.payload.id.toString()], fromJS(favorite));
 
     case ACTION_REMOVE_FROM_FAVORITES:
       state = state.updateIn(['albums', action.payload.id.toString(), 'favorite'], () => false);
+      state = state.deleteIn(['artists', action.payload.album.get('artistId').toString()]);
       return state.deleteIn(['favorites', action.payload.id.toString()]);
 
     case ACTION_HIDE_ERROR:

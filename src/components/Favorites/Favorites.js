@@ -1,19 +1,35 @@
+import classNames from 'classnames';
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { selectAlbums } from '../AlbumsList/albumslist.selector';
-import Album from '../Album/Album';
-import ArtistDetails from '../ArtistDetails/ArtistDetails';
+import Artists from '../Artists/Artists';
+import styles from './Favorites.css';
 
 class Favorites extends Component {
   render() {
+    const { favorites, artists } = this.props;
+
     return (
-      <div>
-        <ul>
-          <Album />
-          <Album />
-        </ul>
+      <div className={styles.wrapper}>
         <div>
-          <ArtistDetails />
+          <h2 className={styles.heading}>FAVORITES</h2>
+          <ul className={styles.list}>
+            <li className={styles.listItem}>
+              <div className={styles.listItemImage}>
+              </div>
+              <div className={styles.listItemTitle}>Title</div>
+              <div className={styles.listItemSinger}>Singer</div>
+            </li>
+            {favorites.map((album) => <li className={styles.listItem}>
+              <div className={styles.listItemImage}
+                   style={{ backgroundImage: `url("${album.get('artworkUrl100')}")` }}>
+              </div>
+              <div className={classNames(styles.listItemTitle, styles['text-ellipsis'])}>{album.get('artistName')}</div>
+              <div className={classNames(styles.listItemSinger, styles['text-ellipsis'])}>{album.get('trackName')}</div>
+            </li>)}
+          </ul>
+        </div>
+        <div className={styles.artistWrapper}>
+          <h2 className={styles.heading}>ARTISTS</h2>
+          <Artists artists={artists} />
         </div>
       </div>
     );
@@ -23,5 +39,4 @@ class Favorites extends Component {
 Favorites.propTypes = {};
 Favorites.defaultProps = {};
 
-const mapStateToProps = state => selectAlbums(state);
-export default connect(mapStateToProps)(AlbumsList);
+export default Favorites;

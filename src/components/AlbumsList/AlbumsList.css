@@ -1,0 +1,14 @@
+.heading {
+  color: #24292E;
+  padding-top: 40px;
+}
+
+.list {
+  overflow: auto;
+  display: flex;
+}
+
+.text {
+  font-size: 14px;
+  color: rgba(36, 41, 46, 0.81);;
+}
