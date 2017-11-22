@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   padding-top: 40px;
-
+  border-top: #13273a2e solid 1px;
 }
 
 .heading {

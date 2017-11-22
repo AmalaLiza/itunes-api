@@ -9,6 +9,8 @@
 }
 
 .text {
+  margin: 0 auto;
+  padding-top: 100px;
+  display: table;
   font-size: 14px;
-  color: rgba(36, 41, 46, 0.81);;
 }

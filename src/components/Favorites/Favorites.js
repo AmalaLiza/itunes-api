@@ -29,7 +29,7 @@ class Favorites extends Component {
         </div>
         <div className={styles.artistWrapper}>
           <h2 className={styles.heading}>ARTISTS</h2>
-          <Artists artists={artists} />
+          {artists && artists.size > 0 && <Artists artists={artists} />}
         </div>
       </div>
     );

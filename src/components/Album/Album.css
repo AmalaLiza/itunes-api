@@ -35,11 +35,9 @@
 .albumName {
   font-weight: 600;
   display: block;
-  color: #00000082;
 }
 
 .artist {
-  color: #968d8d;
   font-size: 12px;
   display: block;
 }

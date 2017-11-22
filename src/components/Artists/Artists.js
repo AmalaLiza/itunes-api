@@ -2,21 +2,25 @@ import classNames from 'classnames';
 import React, { Component } from 'react';
 import styles from './Artists.css';
 
-class ArtistDetails extends Component {
+class Artists extends Component {
   render() {
     const { artists } = this.props;
     return (
       <ul className={styles.list}>
-        {artists.map((album) => <li className={styles.listItem}>
-          <div className={styles.artist}>{artists.get('name')[0]}</div>
-          <div className={classNames(styles.listItemSinger, styles['text-ellipsis'])}>{artists.get('name')}</div>
+        {artists.map((artist) => <li className={styles.listItem}>
+          <div className={styles.artist}>
+            <span className={styles.letter}>
+            {artist.get('name')[0]}
+          </span>
+          </div>
+          <div className={classNames(styles.listItemSinger, styles['text-ellipsis'])}>{artist.get('name')}</div>
         </li>)}
       </ul>
     );
   }
 }
 
-ArtistDetails.propTypes = {};
-ArtistDetails.defaultProps = {};
+Artists.propTypes = {};
+Artists.defaultProps = {};
 
-export default ArtistDetails;
+export default Artists;

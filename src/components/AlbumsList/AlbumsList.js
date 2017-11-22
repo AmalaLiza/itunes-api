@@ -15,7 +15,7 @@ class AlbumsList extends Component {
 
   addRemoveFavorites(album) {
     !album.get('favorite') ? this.props.dispatch(addToFavorites(album.get('trackId'), album)) :
-      this.props.dispatch(removedFromFavorites(album.get('trackId')));
+      this.props.dispatch(removedFromFavorites(album.get('trackId'), album));
   }
 
   render() {

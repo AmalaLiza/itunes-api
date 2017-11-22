@@ -1,11 +1,11 @@
 .input{
   outline: none;
   border: 0;
-  width: 321px;
   height: 35px;
   box-shadow: none;
   display: inline-block;
   border-radius: 29px;
   padding: 0 10px 0 16px;
   font-size: 14px;
+  width: 550px;
 }

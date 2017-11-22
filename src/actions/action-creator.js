@@ -38,10 +38,10 @@ export function addToFavorites(id, album) {
   };
 }
 
-export function removedFromFavorites(id) {
+export function removedFromFavorites(id, album) {
   return {
     type: ACTION_REMOVE_FROM_FAVORITES,
-    payload: { id },
+    payload: { id, album },
   };
 }
 
