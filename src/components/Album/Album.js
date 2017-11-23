@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { Component } from 'react';
 import ListItem from '../List/ListItem/ListItem';
 import styles from './Album.css';
@@ -21,10 +22,10 @@ class Album extends Component {
             <img className={styles.favorite}
                  src='favorite.png' />}
         </div>
-        <span className={styles.albumName}>{
+        <span className={classNames(styles.albumName, styles.name)}>{
           album.get('trackName')}
           </span>
-        <span className={styles.artist}>
+        <span className={classNames(styles.artist, styles.name)}>
           {album.get('artistName')}
           </span>
       </ListItem>

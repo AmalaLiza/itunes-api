@@ -24,15 +24,13 @@ export function albumsReducer(state = initialState, action) {
 
     case ACTION_ADD_TO_FAVORITES:
       state = state.updateIn(['albums', action.payload.id.toString(), 'favorite'], () => true);
-      let artistId = action.payload.album.get('artistId') || action.payload.album.get('collectionArtistId');
-      state = state.updateIn(['artists', artistId], () => fromJS({ name: action.payload.album.get('artistName') }));
+      state = state.updateIn(['artists', action.payload.album.get('artistName')], () => fromJS({ name: action.payload.album.get('artistName') }));
       const favorite = action.payload.album.set('favorite', true);
       return state.setIn(['favorites', action.payload.id.toString()], fromJS(favorite));
 
     case ACTION_REMOVE_FROM_FAVORITES:
       state = state.updateIn(['albums', action.payload.id.toString(), 'favorite'], () => false);
-      artistId = action.payload.album.get('artistId') || action.payload.album.get('collectionArtistId');
-      state = state.deleteIn(['artists', artistId]);
+      state = state.deleteIn(['artists', action.payload.album.get('artistName')]);
       return state.deleteIn(['favorites', action.payload.id.toString()]);
 
     case ACTION_LOAD_ALBUMS_ERROR:

@@ -6,7 +6,7 @@ import List from '../List/List';
 import ListItem from '../List/ListItem/ListItem';
 import styles from './Favorites.css';
 
-const Header = () => <div className={styles.listItem}>
+const Header = () => <div className={classNames(styles.listItem, styles.header)}>
   <div className={styles.listItemImage}>
   </div>
   <div className={styles.listItemTitle}>Title</div>

@@ -5,6 +5,10 @@
   overflow: hidden;
 }
 
+.header{
+  margin-top: 15px
+}
+
 .list {
   width: 500px;
   overflow: auto;
