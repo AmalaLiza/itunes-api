@@ -36,9 +36,7 @@ export function* loadAlbumsOfArtist(action) {
       yield put(loadAlbumsOfArtistSuccess(normalizeItems(response.results, 'trackId'), artist));
     }
   } catch (error) {
-    console.log(error);
-    if (error === 'Not Found') { error = 'Username not found'; }
-    yield put(loadAlbumsOfArtistError(error));
+    yield put(loadAlbumsOfArtistError('Error in fetching albums'));
     yield put(loadAlbumsOfArtistSuccess());
   }
 }
