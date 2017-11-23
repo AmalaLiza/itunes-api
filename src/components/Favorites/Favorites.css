@@ -1,13 +1,14 @@
 .wrapper {
   display: flex;
-  padding-top: 40px;
-  border-top: #13273a2e solid 1px;
+  flex-grow: 1;
+  height: 100%;
+  overflow: hidden;
 }
 
 .list {
   width: 500px;
   overflow: auto;
-  height: 450px;
+  height: calc(100% - 119px);
 }
 
 .listItem {
@@ -49,5 +50,7 @@
 }
 
 .artistWrapper {
+  height: 100%;
   margin-left: 88px;
+  flex-grow: 1;
 }

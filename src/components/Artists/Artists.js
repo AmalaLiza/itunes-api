@@ -17,9 +17,6 @@ class Artists extends Component {
         {artists.map((artist) => <ListItem className={styles.listItem}
                                      onClick={() => onClick(artist)}>
           <div className={styles.artist}>
-            <span className={styles.letter}>
-            {artist.get('name')[0]}
-          </span>
           </div>
           <div className={classNames(styles.listItemSinger, styles['text-ellipsis'])}>{artist.get('name')}</div>
         </ListItem>)}

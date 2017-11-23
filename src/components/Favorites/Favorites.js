@@ -6,12 +6,12 @@ import List from '../List/List';
 import ListItem from '../List/ListItem/ListItem';
 import styles from './Favorites.css';
 
-const Header = () => <ListItem className={styles.listItem}>
+const Header = () => <div className={styles.listItem}>
   <div className={styles.listItemImage}>
   </div>
   <div className={styles.listItemTitle}>Title</div>
   <div className={styles.listItemSinger}>Singer</div>
-</ListItem>;
+</div>;
 
 class Favorites extends Component {
   render() {
@@ -21,10 +21,10 @@ class Favorites extends Component {
       <div className={styles.wrapper}>
         <div>
 
-          <Heading text={'FAVORITES'} />
-          <List className={styles.list}>
+          <Heading text={`Songs (${favorites.size})`} />
+          <Header />
 
-            <Header />
+          <List className={styles.list}>
 
             {favorites
               .filter((album) => artist === '' ? true : album.get('artistName') === artist)
@@ -45,7 +45,7 @@ class Favorites extends Component {
         </div>
 
         <div className={styles.artistWrapper}>
-          <Heading text={'ARTISTS'} />
+          <Heading text={`Artists (${artists.size})`} />
           {artists && artists.size > 0 && <Artists artists={artists}
                                                    onClick={artistOnClick} />}
         </div>

@@ -1,3 +1,7 @@
+.wrapper {
+  flex-shrink: 0;
+}
+
 .list {
   overflow: auto;
   display: flex;

@@ -33,4 +33,11 @@
   width: 100%;
   position: absolute;
   padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.favHeading {
+  border-top: #13273a2e solid 1px;
+  padding-top: 0;
 }

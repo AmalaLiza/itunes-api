@@ -4,9 +4,9 @@ import Album from '../Album/Album';
 import { addToFavorites } from '../../actions/action-creator';
 import { removedFromFavorites } from '../../actions/action-creator';
 import { getAlbums } from './albumslist.selector';
-import styles from './AlbumsList.css';
 import List from '../List/List';
 import Heading from '../Heading/Heading';
+import styles from './AlbumsList.css';
 
 class AlbumsList extends Component {
 

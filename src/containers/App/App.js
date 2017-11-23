@@ -7,6 +7,7 @@ import AlbumsList from '../../components/AlbumsList/AlbumsList';
 import { selector } from '../../components/AlbumsList/albumslist.selector';
 import ErrorPopup from '../../components/ErrorToast/ErrorToast';
 import Favorites from '../../components/Favorites/Favorites';
+import Heading from '../../components/Heading/Heading';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import '../../global.css';
 import styles from './App.css';
@@ -79,6 +80,8 @@ class App extends Component {
           {/** Component to render all the list of albums. */}
 
           <AlbumsList />
+
+          {favorites && favorites.size > 0 && <Heading text={'FAVORITES'} className={styles.favHeading}/>}
 
           {/** Component to render all the list of favorite albums and it's details. */}
 
