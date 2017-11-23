@@ -35,7 +35,7 @@ class AlbumsList extends Component {
             {albums.map((album) => <Album album={album}
                                           onClick={() => this.addRemoveFavorites(album)} />)}
           </List> :
-          <span className={styles.text}>No albums found.</span>}
+          <span className={styles.text}>No albums found</span>}
       </div>
     );
   }

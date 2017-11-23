@@ -9,8 +9,11 @@
 }
 
 .text {
+  color: rgba(36, 41, 46, 0.71);
   margin: 0 auto;
-  padding-top: 100px;
+  padding-top: 300px;
   display: table;
-  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px
 }
