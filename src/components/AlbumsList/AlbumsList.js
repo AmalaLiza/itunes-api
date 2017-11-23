@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Album from '../Album/Album';
 import { addToFavorites } from '../../actions/action-creator';
 import { removedFromFavorites } from '../../actions/action-creator';
-import Album from '../Album/Album';
-import styles from './AlbumsList.css';
 import { getAlbums } from './albumslist.selector';
+import styles from './AlbumsList.css';
+import List from '../List/List';
+import Heading from '../Heading/Heading';
 
 class AlbumsList extends Component {
 
@@ -12,6 +14,11 @@ class AlbumsList extends Component {
     super(props, context);
     this.addRemoveFavorites = this.addRemoveFavorites.bind(this);
   }
+
+  /**
+   * Function to add or remove favorite albums.
+   * Dispatches action to store to add album or remove, if the album is already in favorites list.
+   * */
 
   addRemoveFavorites(album) {
     !album.get('favorite') ? this.props.dispatch(addToFavorites(album.get('trackId'), album)) :
@@ -22,20 +29,17 @@ class AlbumsList extends Component {
     const { albums } = this.props;
     return (
       <div className={styles.wrapper}>
-        <h2 className={styles.heading}>ALBUMS</h2>
+        <Heading text={'ALBUMS'}/>
         {albums.size ?
-          <ul className={styles.list}>
+          <List className={styles.list}>
             {albums.map((album) => <Album album={album}
                                           onClick={() => this.addRemoveFavorites(album)} />)}
-          </ul> :
+          </List> :
           <span className={styles.text}>No albums found.</span>}
       </div>
     );
   }
 }
-
-AlbumsList.propTypes = {};
-AlbumsList.defaultProps = {};
 
 const mapStateToProps = state => getAlbums(state);
 export default connect(mapStateToProps)(AlbumsList);

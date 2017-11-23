@@ -15,7 +15,7 @@ const getConfig = (moduleName, port) => ({
     ],
   },
   output: {
-    path: `${__dirname}/__build_${moduleName}__`,
+    path: `${__dirname}/__build__`,
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
     publicPath: '/',
@@ -82,6 +82,7 @@ const getConfig = (moduleName, port) => ({
     }),
     new CopyWebpackPlugin([
       { from: 'src/images/favicon.png', to: 'favicon.png' },
+      { from: 'src/images/favorite.png', to: 'favorite.png' },
     ], { copyUnmodified: true }),
   ]
 });

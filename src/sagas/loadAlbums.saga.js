@@ -20,8 +20,8 @@ export function* loadAlbumsOfArtist(action) {
     const URL_LOAD_PUBLIC_GISTS = `${BASE_URL}/search?term=${action.artistName.replace(' ', '+')}`;
     const response = yield call(request, URL_LOAD_PUBLIC_GISTS, { method: 'GET' });
 
-    if (response && response.length === 0) {
-      yield put(loadAlbumsOfArtistError('No Gists Found'));
+    if (response && response.results.length === 0) {
+      yield put(loadAlbumsOfArtistError('No Albums Found'));
       yield put(loadAlbumsOfArtistSuccess());
     } else {
       const artist = {

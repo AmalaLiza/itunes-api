@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ErrorPopup.css';
+import styles from './ErrorToast.css';
 
-export default class ErrorPopup extends React.Component {
+export default class ErrorToast extends React.Component {
 
   constructor(props, context) {
     super(props, context);
   }
 
+  /**
+   * Automatically hides error message after a 3000 ms.
+   * */
   componentDidMount() {
     window.setTimeout(this.props.hideError, 3000);
   }
@@ -24,7 +27,7 @@ export default class ErrorPopup extends React.Component {
   }
 }
 
-ErrorPopup.propTypes = {
+ErrorToast.propTypes = {
   /**
    * Function to hide error
    */

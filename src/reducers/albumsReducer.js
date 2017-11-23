@@ -2,6 +2,7 @@ import { fromJS } from 'immutable';
 import {
   ACTION_ADD_TO_FAVORITES,
   ACTION_HIDE_ERROR,
+  ACTION_LOAD_ALBUMS_ERROR,
   ACTION_LOAD_ALBUMS_SUCCESS,
   ACTION_REMOVE_FROM_FAVORITES,
 } from '../actions/actions-constants';
@@ -33,6 +34,9 @@ export function albumsReducer(state = initialState, action) {
       artistId = action.payload.album.get('artistId') || action.payload.album.get('collectionArtistId');
       state = state.deleteIn(['artists', artistId]);
       return state.deleteIn(['favorites', action.payload.id.toString()]);
+
+    case ACTION_LOAD_ALBUMS_ERROR:
+      return state.update('error', () => action.error);
 
     case ACTION_HIDE_ERROR:
       return state.update('error', () => false);
